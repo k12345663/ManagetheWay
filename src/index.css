@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 214 62% 21%;
+    --color-primary-light: 214 60% 31%;
+    --color-secondary: 173 85% 35%;
+    --color-accent: 36 100% 65%;
+    --color-success: 142 71% 45%;
+    --color-warning: 43 96% 58%;
+    --color-error: 0 91% 71%;
+    --color-background: 210 20% 98%;
+    --color-foreground: 220 14% 96%;
+  }
+
+  body {
+    @apply bg-background text-slate-800 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-slate-900;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-light focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-teal-600 focus:ring-secondary;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-amber-500 focus:ring-accent;
+  }
+
+  .btn-outline {
+    @apply border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus:ring-slate-500;
+  }
+
+  .btn-danger {
+    @apply bg-error text-white hover:bg-red-600 focus:ring-error;
+  }
+
+  .btn-success {
+    @apply bg-success text-white hover:bg-green-600 focus:ring-success;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+
+  .select {
+    @apply w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none bg-white;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+
+  .room {
+    @apply border rounded-md flex items-center justify-center text-sm font-medium h-12 w-12 transition-all duration-200 cursor-pointer;
+  }
+
+  .room-available {
+    @apply border-slate-300 bg-white hover:bg-slate-50 text-slate-700;
+  }
+
+  .room-booked {
+    @apply border-red-300 bg-red-50 text-red-700 cursor-not-allowed;
+  }
+
+  .room-selected {
+    @apply border-primary bg-primary bg-opacity-10 text-primary;
+  }
+
+  .floor-label {
+    @apply text-sm font-medium text-slate-500 mb-2;
+  }
+
+  .elevator {
+    @apply bg-slate-200 flex items-center justify-center rounded-md h-12 w-12;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.room-hover-effect {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-hover-effect:hover:not(.room-booked) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
